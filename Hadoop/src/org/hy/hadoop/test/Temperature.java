@@ -97,16 +97,13 @@ public class Temperature extends Configured implements Tool{
 		job.setOutputValueClass(IntWritable.class);
 		
 		//7. submit job
-		job.waitForCompletion(true);
-
-		
-		return 0;
+		return job.waitForCompletion(true)?0:1;
 	}
 
 	public static void main(String[] args) throws Exception {
 		//1. set args0
 		String[] args0 = {"hdfs://hy:9000/weather/",
-				"hdfs://hy:9000/weather/out"};
+				"hdfs://hy:9000/weather/out/"};
 		
 		//2. run
 		int ec = ToolRunner.run(new Configuration(), new Temperature(), args0);
