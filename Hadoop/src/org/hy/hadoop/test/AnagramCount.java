@@ -54,7 +54,7 @@ public class AnagramCount extends Configured implements Tool{
 					subRes = result.substring(0, result.length()-1);
 				}
 				Text tRes = new Text(subRes); 
-				
+				 
 				//output data
 				context.write(key, tRes);
 			}
