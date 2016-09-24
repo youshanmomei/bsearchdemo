@@ -146,5 +146,6 @@
 	<classpathentry kind="lib" path="E:/项目资料/hadoop/tool/mrunit-hadoop.jar"/>
 	<classpathentry kind="lib" path="E:/项目资料/hadoop/tool/poi-3.9.jar"/>
 	<classpathentry kind="lib" path="E:/项目资料/hadoop/tool/poi-excelant-3.9.jar"/>
+	<classpathentry kind="lib" path="E:/项目资料/hadoop/tool/jsoup-1.7.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
