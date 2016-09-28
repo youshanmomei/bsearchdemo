@@ -1,9 +1,13 @@
-package org.hy.hadoop.mission10.television;
+package org.hy.hadoop.mission11.tvratings;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class ParseTime {
+/**
+ * 时间工具
+ * @author andy
+ *
+ */
+public class TimeUtil {
 
 	/**
 	 * @function 提取start~end之间的分钟数
@@ -44,8 +48,8 @@ public class ParseTime {
 				} else {
 					mstr = m + "";
 				}
-				String[] time = { sh * 3600 + m * 60 + "",
-						ah * 3600 + am * 60 + "", hstr + ":" + mstr };
+//				String[] time = { sh * 3600 + m * 60 + "", ah * 3600 + am * 60 + "", hstr + ":" + mstr };
+				String[] time = { TimeToSecond(start)+"", ah * 3600 + am * 60 + "", hstr + ":" + mstr };
 				list.add(time);
 			}
 		} else {
@@ -73,8 +77,8 @@ public class ParseTime {
 						} else {
 							mstr = m + "";
 						}
-						String[] time = { h * 3600 + m * 60 + "",
-								ah * 3600 + am * 60 + "", hstr + ":" + mstr };
+//						String[] time = { h * 3600 + m * 60 + "", ah * 3600 + am * 60 + "", hstr + ":" + mstr };
+						String[] time = { TimeToSecond(start)+"", ah * 3600 + am * 60 + "", hstr + ":" + mstr };
 						list.add(time);
 					}
 				} else if (h == eh) {
@@ -97,8 +101,8 @@ public class ParseTime {
 						} else {
 							mstr = m + "";
 						}
-						String[] time = { h * 3600 + m * 60 + "",
-								ah * 3600 + am * 60 + "", hstr + ":" + mstr };
+//						String[] time = { h * 3600 + m * 60 + "", ah * 3600 + am * 60 + "", hstr + ":" + mstr };
+						String[] time = { TimeToSecond(start)+"", ah * 3600 + am * 60 + "", hstr + ":" + mstr };
 						list.add(time);
 					}
 				} else {
@@ -121,8 +125,8 @@ public class ParseTime {
 						} else {
 							mstr = m + "";
 						}
-						String[] time = { h * 3600 + m * 60 + "",
-								ah * 3600 + am * 60 + "", hstr + ":" + mstr };
+//						String[] time = { h * 3600 + m * 60 + "", ah * 3600 + am * 60 + "", hstr + ":" + mstr };
+						String[] time = { TimeToSecond(start)+"", ah * 3600 + am * 60 + "", hstr + ":" + mstr };
 						list.add(time);
 					}
 				}
@@ -131,4 +135,27 @@ public class ParseTime {
 		return list;
 	}
 	
+	/**
+	 * 将时间00:00:00 转换为秒  int
+	 * @param time
+	 * @return
+	 */
+	public static int TimeToSecond(String time){
+		if(time==null || time.equals("")) return 0;
+		
+		String[] ts = time.split(":");
+		int hour = Integer.parseInt(ts[0]);
+		int min = Integer.parseInt(ts[1]);
+		int sec = Integer.parseInt(ts[2]);
+		int totalSec = 3600*hour + 60*min + sec;
+		return totalSec;
+	}
+	
+	
+//	public static void main(String[] args) {
+//		List<String[]> list = getTimeSplit("23:56:45", "24:00:00");
+//		for (String[] str : list) {
+//			System.out.println("["+str[0]+","+str[1]+","+str[2]+"]");
+//		}
+//	}
 }
